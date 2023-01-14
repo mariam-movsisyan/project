@@ -1,0 +1,41 @@
+.block{
+    width: 75%;
+    display: flex;
+    justify-content:end;
+}
+.img-div{
+    width: 45%;
+    height: 50px;
+    flex-wrap: wrap;
+}
+.div1{
+    width: 100%;
+}
+img{
+    width: 100%;
+}
+.img{
+    width: 31%;
+    margin-top: 20px;
+    display: flex;
+}
+.img img{
+    margin-right: 10px;
+}
+.info{
+    width: 100%;
+    margin-left: 20px;
+    padding: 10px;
+    border: 1px solid grey;
+}
+
+.text-right{
+    text-align: right;
+}
+.first_block{
+    width: 50%;
+}
+.btn-success{
+    padding: 15px 20px;
+    width: 120px;
+}

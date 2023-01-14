@@ -1,0 +1,20 @@
+table{
+    width: 80%;
+    border-collapse: separate;
+    border-spacing: 30px 0px;
+    text-align: end;
+}
+td{
+    width: 2%;
+}
+.text-left{
+    text-align: left;
+}
+img{
+    width: 100%;
+}
+.table-div{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}

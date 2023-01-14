@@ -1,0 +1,21 @@
+<app-main-layout>
+    <div class="table-div">
+        <table>
+            <tr *ngFor="let order of orders">
+                <td>
+                    <img [src]="order.img" alt="">
+                </td>
+                <td class="text-left">
+                    <p>{{order.name}}</p>
+                    <p>{{order.date}}</p>
+                </td>
+                <td>
+                    {{order.price}}
+                </td>
+                <td>
+                    <button type="button" class="btn btn-success" (click)="orderButton(order.id)">{{order.button}}</button>
+                </td>
+            </tr>
+        </table>
+    </div>
+</app-main-layout>

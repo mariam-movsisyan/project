@@ -1,0 +1,114 @@
+<div class="navbar navbar-expand-lg navbar-dark bg-dark mb-5">
+    <div class="container d-flex">
+        <div>
+            <a class="navbar-brand" routerLink="/main-layout">LOGO</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div>
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" (click)="openMenu()">
+                <i class="fa-solid fa-user"></i>
+                {{name}}
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" [class.menu]='isTrue'>
+                <div class="d-flex style">
+                    <a class="dropdown-item" routerLink="/profile">Profile</a>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="d-flex style">
+                    <a class="dropdown-item" (click)="logOut()">Log Out</a>
+                    <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="d-flex flex-column flex-shrink-0 text-white bg-dark sideNav">
+        <ul class="nav nav-pills flex-column mb-auto">
+            <li class="nav-item mt-5">
+                <a routerLink="/dashboard" class="nav-link text-white" routerLinkActive="active" >
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#home"></use>
+                    </svg>
+                    Dashboard
+                </a>
+                <hr>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#speedometer2"></use>
+                    </svg>
+                    Statistics
+                </a>
+                <hr>
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#table"></use>
+                    </svg>
+                    Live Map
+                </a>
+                <hr>
+
+            </li>
+            <li>
+                <a routerLink="/new-orders" class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#grid"></use>
+                    </svg>
+                    New Orders
+                </a>
+                <hr>
+
+            </li>
+            <li>
+                <a routerLink="/orders" class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Seen Orders
+                </a>
+                <hr>
+
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    In Proccess Orders
+                </a>
+                <hr>
+
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Rejected Orders
+                </a>
+                <hr>
+
+            </li>
+            <li>
+                <a class="nav-link text-white" routerLinkActive="active">
+                    <svg class="bi me-2" width="16" height="16">
+                        <use xlink:href="#people-circle"></use>
+                    </svg>
+                    Completed Orders
+                </a>
+                <hr>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="container">
+    <ng-content></ng-content>
+</div>

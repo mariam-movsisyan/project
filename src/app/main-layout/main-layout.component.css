@@ -1,0 +1,47 @@
+.navbar-brand {
+    font-weight: 640;
+    font-size: 33px;
+    color: #27c527
+}
+
+.dropdown-toggle {
+    color: white
+}
+
+.menu {
+    display: block !important;
+    background-color: #212529;
+    color: white;
+}
+
+.menu a {
+    color: white;
+    cursor: pointer;
+}
+
+.style {
+    align-items: baseline;
+    padding-right: 10px;
+}
+
+hr {
+    margin: 0;
+}
+
+.mt-5 {
+    margin-top: 100px !important;
+}
+
+svg {
+    padding: 17px 0;
+}
+
+.sideNav {
+    width: 280px;
+    height: 84vh;
+    position: absolute;
+}
+
+.active {
+    background-color: #16ae16 !important;
+}

@@ -1,0 +1,19 @@
+.text-light{
+    font-weight: 400;
+}
+.card-text{
+    font-size: 30px;
+}
+.card-subtitle{
+    font-size: 22px;
+}
+.style{
+    position: relative;
+    left: 22%;
+    width: 85%;
+    flex-wrap: wrap;
+}
+.card{
+    margin-left: 25px;
+    margin-bottom: 25px;
+}
