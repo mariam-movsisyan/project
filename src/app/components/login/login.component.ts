@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../services/user.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -44,15 +44,6 @@ export class LoginComponent {
     }
   }
 
-  showErrors1(): boolean {
-    if ((this.formValidation.get('email')?.hasError('required') && this.formValidation.get('email')?.touched) ||
-      (this.formValidation.get('password')?.hasError('required') && this.formValidation.get('password')?.touched)) {
-      this.formValidation.markAllAsTouched();
-      return true
-    }
-    return false
-  }
-
   showErrors(): boolean {
     if ((this.formValidation.get('email')?.hasError('required') && this.formValidation.get('email')?.touched) ||
       (this.formValidation.get('password')?.hasError('required') && this.formValidation.get('password')?.touched)) {
@@ -61,6 +52,7 @@ export class LoginComponent {
     }
     return false
   }
+
 
   usertExist() {
     if (this.formValidation.valid && this.login() === false) {

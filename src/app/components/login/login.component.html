@@ -8,7 +8,7 @@
                 formControlName="email">
             <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                 formControlName="password">
-            <div id="password-help-block" class="form-text" *ngIf="showErrors1()" [class.errors]="showErrors1()">
+            <div id="password-help-block" class="form-text" *ngIf="showErrors()" [class.errors]="showErrors()">
                 Email and password are required.
             </div>
             <div class="form-text" *ngIf="usertExist()" [class.errors]="usertExist() === false">

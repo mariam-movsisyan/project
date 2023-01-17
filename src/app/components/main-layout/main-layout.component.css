@@ -45,3 +45,6 @@ svg {
 .active {
     background-color: #16ae16 !important;
 }
+a{
+    cursor: pointer;
+}

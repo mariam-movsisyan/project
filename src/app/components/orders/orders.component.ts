@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { MoreOrderService } from '../services/more-order.service';
+import { MoreOrderService } from '../../services/more-order.service';
 
 @Component({
   selector: 'app-orders',
@@ -12,14 +12,14 @@ export class OrdersComponent implements OnInit {
   public post: any
   constructor(private moreOrderService: MoreOrderService,
     private route: ActivatedRoute) {
-    this.orders = moreOrderService.aboutOrders
+    this.orders = moreOrderService.getOrders()
   }
 
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params)=>{
-    this.post = this.moreOrderService.getById(params?.['id'])
-      
+    this.route.params.subscribe((params: Params) => {
+      this.post = this.moreOrderService.getById(params['id'])
+      console.log(this.post);
+      console.log(params, 'asassd');
     })
   }
-
 }

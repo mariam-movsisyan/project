@@ -2,7 +2,7 @@
     <div>
         <div>
             <div class="text-right">
-                <button type="button" class="btn btn-success">Edit</button>
+                <button type="button" class="btn btn-success" (click)="isEdit()">Edit</button>
             </div>
             <div class="img_div">
                 <img src="../../assets/images/blank-profile-picture-973460_1280.webp" alt="Profile image">
@@ -18,7 +18,7 @@
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Last name</label>
                     <input type="text" class="form-control" id="exampleFormControlInput1"
-                        placeholder="last name" formControlName="surname">
+                        placeholder="last name" formControlName="lastName">
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlInput1">Phone Number</label>
@@ -29,6 +29,10 @@
                     <label for="exampleFormControlInput1">Email address</label>
                     <input type="email" class="form-control" id="exampleFormControlInput1"
                         placeholder="name@example.com" formControlName="email">
+                </div>
+
+                <div class="text-center">
+                    <button type="button" class="btn btn-success" (click)="isSaved()" [disabled]="form.dirty === false">Save</button>
                 </div>
             </form>
         </div>
