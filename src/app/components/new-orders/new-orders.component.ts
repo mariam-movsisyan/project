@@ -17,7 +17,7 @@ export class NewOrdersComponent implements OnInit {
   ngOnInit(): void {
   }
   public orderButton(id: number){
-    this.router.navigate(['/order', id])
+    this.router.navigate(['/main-layout/order', id])
   }
 
 

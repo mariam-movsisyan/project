@@ -37,9 +37,8 @@ svg {
 }
 
 .sideNav {
-    width: 280px;
-    height: 84vh;
-    position: absolute;
+    width: 23%;
+    height: 600px;
 }
 
 .active {

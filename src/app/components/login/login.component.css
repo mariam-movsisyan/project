@@ -81,7 +81,6 @@
     background-color: rgb(12, 97, 33);
 }
 
-
-.errors{
-    color: red;
+.form-text{
+    padding-bottom: 10px;
 }

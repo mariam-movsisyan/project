@@ -1,11 +1,9 @@
-<app-main-layout>
-    <div class="d-flex style">
-        <div class="card" style="width: 18rem;"  *ngFor="let card of cards let ind = index">
-            <div class="card-body ml-2" [ngStyle]="{'background-color': colors[ind]}">
-              <h5 class="card-title text-light">{{card.header}}</h5>
-              <h6 class="card-subtitle mb-2 text-center text-light">{{card.title}}</h6>
-              <p class="card-text text-center text-light">{{card.count}}</p>
-            </div>
-          </div>          
+<div class="d-flex style justify-content-between">
+  <div class="card" style="width: 18rem;" *ngFor="let card of cards let ind = index">
+    <div class="card-body ml-2" [ngStyle]="{'background-color': colors[ind]}">
+      <h5 class="card-title text-light">{{card.header}}</h5>
+      <h6 class="card-subtitle mb-2 text-center text-light">{{card.title}}</h6>
+      <p class="card-text text-center text-light">{{card.count}}</p>
     </div>
-</app-main-layout>
+  </div>
+</div>

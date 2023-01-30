@@ -1,30 +1,24 @@
 .block{
-    width: 75%;
+    width: 50%;
     display: flex;
-    justify-content:end;
 }
 .img-div{
-    width: 45%;
-    height: 50px;
+    width: 90%;
     flex-wrap: wrap;
-}
-.div1{
-    width: 100%;
 }
 img{
     width: 100%;
 }
 .img{
     width: 31%;
-    margin-top: 20px;
     display: flex;
 }
 .img img{
     margin-right: 10px;
+    height: 100px;
 }
 .info{
     width: 100%;
-    margin-left: 20px;
     padding: 10px;
     border: 1px solid grey;
 }
@@ -33,7 +27,7 @@ img{
     text-align: right;
 }
 .first_block{
-    width: 50%;
+    width: 80%;
 }
 .btn-success{
     padding: 15px 20px;

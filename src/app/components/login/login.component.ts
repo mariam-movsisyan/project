@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { UserService } from '../../services/user.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-login',
@@ -9,56 +9,53 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent {
-
-  public formValidation: FormGroup
-  constructor(
-    private _fb: FormBuilder,
-    private userService: UserService,
-    private router: Router
-  ) {
-    this.formValidation = _fb.group({
+  public errorMessage: any = {}
+  public loginForm: FormGroup
+  constructor(private _fb: FormBuilder,
+    private router: Router,
+    private userService: UserService) {
+    this.loginForm = _fb.group({
       email: [null, [Validators.required, Validators.email]],
-      password: [null, Validators.required],
+      password: [null, [Validators.required, Validators.minLength(8)]],
     })
-
-    localStorage.setItem('user', JSON.stringify([{ firstName: 'User', lastName: 'lastName', phone: '+37477777777', email: 'test@gmail.com', password: 'test' }]));
-  }
-  getValues() {
-    const email = (this.formValidation.get('email') as FormControl).value
-    const password = (this.formValidation.get('password') as FormControl).value
-    return {
-      email,
-      password
-    }
   }
 
-  login(): boolean {
-    const values = this.getValues()
-
-    if (this.userService.login(values)) {
-      // this.router.navigate(['/home'])
-      return true
+  public formIsValid() {
+    const errors = this.loginForm.get('email')?.errors;
+    const errors1 = this.loginForm.get('password')?.errors
+    if (errors?.['required'] || errors1?.['required']) {
+      this.errorMessage.required = errors || errors1;
+      console.log(this.errorMessage);
     } else {
-
-      return false
+      this.errorMessage.required = false;
     }
-  }
-
-  showErrors(): boolean {
-    if ((this.formValidation.get('email')?.hasError('required') && this.formValidation.get('email')?.touched) ||
-      (this.formValidation.get('password')?.hasError('required') && this.formValidation.get('password')?.touched)) {
-      this.formValidation.markAllAsTouched();
-      return true
-    }
-    return false
-  }
-
-
-  usertExist() {
-    if (this.formValidation.valid && this.login() === false) {
-      return true;
+    if (errors?.['email'] || errors1?.['minlength']) {
+      this.errorMessage.error = errors || errors1;
+      // console.log(this.errorMessage.error); 
     } else {
-      return false;
+      this.errorMessage.error = false;
     }
   }
+  login() {
+    this.formIsValid()
+    console.log(this.loginForm.valid);
+
+    if (this.loginForm.valid) {
+      const user = this.userService.login(this.loginForm.value)
+        .subscribe(response => {
+          this.errorMessage = {}
+          localStorage.setItem('accessToken', response.data.accessToken)
+          console.log(response);
+          this.router.navigate(['/main-layout/dashboard']);
+        },
+          (err) => {
+
+            this.errorMessage = err.error.error
+            console.log(this.errorMessage);
+
+
+          })
+    }
+  }
+
 }

@@ -2,19 +2,25 @@
     <div class="card card-container">
         <img id="profile-img" class="profile-img-card" src="//ssl.gstatic.com/accounts/ui/avatar_2x.png" />
         <p id="profile-name" class="profile-name-card"></p>
-        <form class="form-signin" [formGroup]="formValidation">
+        <form class="form-signin" [formGroup]="loginForm">
             <span id="reauth-email" class="reauth-email"></span>
-            <input type="email" id="inputEmail" class="form-control" placeholder="Email address" autofocus
+            <input type="email" id="inputEmail" class="form-control" placeholder="Email address"
                 formControlName="email">
             <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                 formControlName="password">
-            <div id="password-help-block" class="form-text" *ngIf="showErrors()" [class.errors]="showErrors()">
+            <div class="form-text error-message" *ngIf="errorMessage.required?.required">
                 Email and password are required.
             </div>
-            <div class="form-text" *ngIf="usertExist()" [class.errors]="usertExist() === false">
+            <div class="form-text error-message" *ngIf="errorMessage.error">
                 Email or password is wrong.
             </div>
-            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="login()" routerLink="/main-layout">Login</button>
+            <div class="form-text error-message" *ngFor="let error of errorMessage.message">
+                {{error}}
+            </div>
+            <button class="btn btn-lg btn-primary btn-block btn-signin" type="submit" (click)="login()">Login</button>
+            <div class="text-center">
+                <p>Not a member? <a routerLink="/registration" class="text-decoration-none">Register</a></p>
+            </div>
         </form>
     </div>
 </div>

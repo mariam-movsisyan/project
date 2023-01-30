@@ -1,80 +1,78 @@
-<app-main-layout>
-    <div class="d-flex">
-        <div class="block d-flex">
-            <div class="img-div d-flex">
-                <div class="div1">
-                    <img [src]="post.image1">
-                </div>
-                <div class="img">
-                    <img [src]="post.image2">
-                    <img [src]="post.image3">
-                    <img [src]="post.image4">
-                </div>
+<div class="d-flex">
+    <div class="block d-flex">
+        <div class="img-div d-flex">
+            <div class="div1">
+                <img [src]="post.image1">
+            </div>
+            <div class="img">
+                <img [src]="post.image2">
+                <img [src]="post.image3">
+                <img [src]="post.image4">
             </div>
         </div>
-        <div class="info">
-            <div  class="text-right">
-                <button type="button" class="btn btn-danger">Delet</button>
-            </div>
-            <div class="d-flex">
-                <div class="first_block">
-                    <div class="d-flex justify-content-between">
-                        <p>Company</p>
-                        <p>{{post.company}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Phone</p>
-                        <p>{{post.phone}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Type</p>
-                        <p>{{post.type}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Zip Code</p>
-                        <p>{{post.zipCode}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Address</p>
-                        <p style="width: 150px;">{{post.address}}</p>
-                    </div>
-                    
-                </div>
-                <div style="width: 1px; border-right: 1px solid black; height: 210px; margin: 0 15px;"></div>
-                <div class="first_block">
-                    <div class="d-flex justify-content-between">
-                        <p>Client</p>
-                        <p>{{post.client}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Phone</p>
-                        <p>{{post.clientPhone}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Balance</p>
-                        <p>{{post.balance}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Buy Date</p>
-                        <p>{{post.buyDate}}</p>
-                    </div>
-                    <div class="d-flex justify-content-between">
-                        <p>Address</p>
-                        <p>{{post.clientAddress}}</p>
-                    </div>
-                    
-                </div>
-            </div>
-            <div>
+    </div>
+    <div class="info">
+        <div class="text-right">
+            <button type="button" class="btn btn-danger">Delet</button>
+        </div>
+        <div class="d-flex">
+            <div class="first_block">
                 <div class="d-flex justify-content-between">
-                    <div>
-                        <button type="button" class="btn btn-success">Seen</button>
-                    </div>
-                    <div>
-                        <button type="button" class="btn btn-success">Set Driver</button>
-                    </div>
+                    <p>Company</p>
+                    <p>{{post.company}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Phone</p>
+                    <p>{{post.phone}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Type</p>
+                    <p>{{post.type}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Zip Code</p>
+                    <p>{{post.zipCode}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Address</p>
+                    <p style="width: 150px;">{{post.address}}</p>
+                </div>
+
+            </div>
+            <div style="width: 1px; border-right: 1px solid black; height: 210px; margin: 0 15px;"></div>
+            <div class="first_block">
+                <div class="d-flex justify-content-between">
+                    <p>Client</p>
+                    <p>{{post.client}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Phone</p>
+                    <p>{{post.clientPhone}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Balance</p>
+                    <p>{{post.balance}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Buy Date</p>
+                    <p>{{post.buyDate}}</p>
+                </div>
+                <div class="d-flex justify-content-between">
+                    <p>Address</p>
+                    <p>{{post.clientAddress}}</p>
+                </div>
+
+            </div>
+        </div>
+        <div>
+            <div class="d-flex justify-content-between">
+                <div>
+                    <button type="button" class="btn btn-success">Seen</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-success">Set Driver</button>
                 </div>
             </div>
         </div>
     </div>
-</app-main-layout>
+</div>

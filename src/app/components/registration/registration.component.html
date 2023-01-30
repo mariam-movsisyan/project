@@ -1,0 +1,68 @@
+<div class="registerStyle">
+    <h2 class="text-uppercase text-center mb-5">REGISTRATION</h2>
+    <form [formGroup]="signUpForm">
+        <label>
+            <p class="label-txt">First Name</p>
+            <input type="text" class="input" formControlName="firstName">
+            <div class="line-box">
+                <div class="line"  [class.line1]="errors.firstName?.required"></div>
+            </div>
+            <p class="form-text error-message" *ngIf="errors.firstName?.required">
+                First Name is required.
+            </p>
+        </label>
+        <label>
+            <p class="label-txt">Last Name</p>
+            <input type="text" class="input" formControlName="lastName">
+            <div class="line-box">
+                <div class="line" [class.line1]="errors.lastName?.required"></div>
+            </div>
+            <p class="form-text error-message" *ngIf="errors.lastName?.required">
+                Last Name is required.
+            </p>
+        </label>
+        <label>
+            <p class="label-txt">Email</p>
+            <input type="text" class="input" formControlName="email">
+            <div class="line-box">
+                <div class="line" [class.line1]="errors.email?.required || errors.email?.email"></div>
+            </div>
+            <div>
+                <div class="form-text error-message" *ngIf="errors.email?.required">
+                    Email is required.
+                </div>
+                <div class="form-text error-message" *ngIf="errors.email?.email">
+                    Email should be valid email address.
+                </div>
+            </div>
+        </label>
+        <label>
+            <p class="label-txt">Password</p>
+            <input type="password" class="input" formControlName="password">
+            <div class="line-box">
+                <div class="line" [class.line1]="errors.password?.required || (errors.password?.minlength)"></div>
+            </div>
+            <p class="form-text error-message" *ngIf="errors.password?.required">
+                Password is required.
+            </p>
+            <div class="form-text error-message" *ngIf="(errors.password?.minlength)">
+                Password needs to be 8 characters long
+            </div>
+        </label>
+        <label>
+            <select class="form-select" aria-label="Default select example" formControlName="roleId">
+                <option [defaultSelected]=true disabled hidden>Choose Role</option>
+                <option [value]="role.id" *ngFor="let role of roles">{{role.name}}</option>
+            </select>
+            <p class="form-text error-message" *ngIf="errors.roleId?.required">
+                Role is required.
+            </p>
+        </label>
+        <div class="center">
+            <button type="submit" (click)="signUp()">Sign up</button>
+        </div>
+        <div class="center mt-2">
+            <p>Have an account? <a routerLink="/login" class="text-decoration-none">Log in</a></p>
+        </div>
+    </form>
+</div>

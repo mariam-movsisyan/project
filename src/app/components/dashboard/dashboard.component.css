@@ -8,9 +8,7 @@
     font-size: 22px;
 }
 .style{
-    position: relative;
-    left: 22%;
-    width: 85%;
+    width: 100%;
     flex-wrap: wrap;
 }
 .card{

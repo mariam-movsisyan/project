@@ -12,6 +12,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { NewOrdersComponent } from './components/new-orders/new-orders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import {HttpClientModule} from '@angular/common/http';
+import { RegistrationComponent } from './components/registration/registration.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import {HttpClientModule} from '@angular/common/http';
     ProfileComponent,
     NewOrdersComponent,
     OrdersComponent,
+    RegistrationComponent,
   ],
   imports: [
     BrowserModule,

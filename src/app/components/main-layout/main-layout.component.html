@@ -15,7 +15,7 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="navbarDropdown" [class.menu]='isTrue'>
                 <div class="d-flex style">
-                    <a class="dropdown-item" routerLink="/profile">Profile</a>
+                    <a class="dropdown-item" routerLink="/main-layout/profile">Profile</a>
                     <i class="fa-solid fa-user"></i>
                 </div>
                 <div class="d-flex style">
@@ -26,11 +26,11 @@
         </div>
     </div>
 </div>
-<div class="container">
+<div class="d-flex container justify-content-between">
     <div class="d-flex flex-column flex-shrink-0 text-white bg-dark sideNav">
         <ul class="nav nav-pills flex-column mb-auto">
             <li class="nav-item mt-5">
-                <a routerLink="/dashboard" class="nav-link text-white" routerLinkActive="active" >
+                <a routerLink="/main-layout/dashboard" class="nav-link text-white" routerLinkActive="active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#home"></use>
                     </svg>
@@ -55,27 +55,24 @@
                     Live Map
                 </a>
                 <hr>
-
             </li>
             <li>
-                <a routerLink="/new-orders" class="nav-link text-white" routerLinkActive="active">
+                <a routerLink="/main-layout/new-orders" class="nav-link text-white" routerLinkActive="active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#grid"></use>
                     </svg>
                     New Orders
                 </a>
                 <hr>
-
             </li>
             <li>
-                <a routerLink="/orders" class="nav-link text-white" routerLinkActive="active">
+                <a routerLink="/main-layout/orders" class="nav-link text-white" routerLinkActive="active">
                     <svg class="bi me-2" width="16" height="16">
                         <use xlink:href="#people-circle"></use>
                     </svg>
                     Seen Orders
                 </a>
                 <hr>
-
             </li>
             <li>
                 <a class="nav-link text-white" routerLinkActive="active">
@@ -85,7 +82,6 @@
                     In Proccess Orders
                 </a>
                 <hr>
-
             </li>
             <li>
                 <a class="nav-link text-white" routerLinkActive="active">
@@ -95,7 +91,6 @@
                     Rejected Orders
                 </a>
                 <hr>
-
             </li>
             <li>
                 <a class="nav-link text-white" routerLinkActive="active">
@@ -108,7 +103,7 @@
             </li>
         </ul>
     </div>
-</div>
-<div class="container">
-    <ng-content></ng-content>
+    <div style="width: 75%;">
+        <router-outlet></router-outlet>
+    </div>
 </div>

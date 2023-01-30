@@ -6,16 +6,20 @@ import { MainLayoutComponent } from './components/main-layout/main-layout.compon
 import { NewOrdersComponent } from './components/new-orders/new-orders.component';
 import { OrdersComponent } from './components/orders/orders.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { RegistrationComponent } from './components/registration/registration.component';
 import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: LoginComponent},
-  {path: 'main-layout', component: MainLayoutComponent, canActivate: [AuthGuard]},
-  {path: 'profile', component: ProfileComponent, canActivate: [AuthGuard]},
-  {path: 'login', component: LoginComponent},
-  {path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard]},
-  {path: 'new-orders', component: NewOrdersComponent, canActivate: [AuthGuard]},
-  {path: 'order/:id', component: OrdersComponent, canActivate: [AuthGuard]},
+  { path: 'login', component: LoginComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
+  { path: 'registration', component: RegistrationComponent},
+  {path: 'main-layout', component: MainLayoutComponent, canActivate: [AuthGuard], children: [
+      { path: 'profile', component: ProfileComponent},
+      { path: 'dashboard', component: DashboardComponent},
+      { path: 'new-orders', component: NewOrdersComponent},
+      { path: 'order/:id', component: OrdersComponent},
+    ]
+  },
 ]
 
 @NgModule({

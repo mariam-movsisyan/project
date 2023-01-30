@@ -14,9 +14,9 @@ export class MainLayoutComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit(): void {
-    let x = localStorage.getItem('user') as string;
-    let y = JSON.parse(x)
-    this.name = y[0].firstName + " " + y[0].lastName
+    // let x = localStorage.getItem('user') as string;
+    // let y = JSON.parse(x)
+    // this.name = y[0].firstName + " " + y[0].lastName
 
   }
   openMenu() {
