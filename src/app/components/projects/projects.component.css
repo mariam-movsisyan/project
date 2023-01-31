@@ -11,3 +11,7 @@ td, th{
 i{
     margin-right: 25px;
 }
+
+a{
+    cursor: pointer;
+}

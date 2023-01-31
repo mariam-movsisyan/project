@@ -48,7 +48,7 @@ export class ProjectComponent implements OnInit{
     const value = this.authService.isEdit()
     if (value == true) {
       this.authService.save()
-
+      this.updateProject()
       return this.form.disable()
     }
   }
@@ -57,7 +57,7 @@ export class ProjectComponent implements OnInit{
       const project = this.projectService.updateProject(this.id,this.form.value);
       project.subscribe(data => {
         console.log(data);
-        this.router.navigate(['/main/projects']);
+        this.router.navigate(['/main-layout/projects']);
       });
     }
   }
