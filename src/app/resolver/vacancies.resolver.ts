@@ -1,17 +1,17 @@
 import { Injectable } from '@angular/core';
 import { Resolve, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
 import { catchError, map } from 'rxjs';
-import { ProjectService } from "../services/project.service";
+import { VacanciesService } from '../services/vacancies.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ProjectResolver implements Resolve<boolean> {
-  constructor(private projectService: ProjectService) {
+export class VacanciesResolver implements Resolve<boolean> {
+  constructor(private vacanciesService: VacanciesService) {
 
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return this.projectService.getAllProjects().pipe(map(project => project.data,
+    return this.vacanciesService.getAllVacancies().pipe(map(project => project.data,
       catchError(error => {
         return ('Not found');
       })));

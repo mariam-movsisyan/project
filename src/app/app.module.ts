@@ -15,6 +15,10 @@ import { RegistrationComponent } from './components/registration/registration.co
 import { CreateProjectComponent } from './components/create-project/create-project.component';
 import { ProjectsComponent } from './components/projects/projects.component';
 import { ProjectComponent } from './components/project/project.component';
+import { TrainingsComponent } from './components/trainings/trainings.component';
+import { VacanciesComponent } from './components/vacancies/vacancies.component';
+import { CreateVacanciesComponent } from './components/create-vacancies/create-vacancies.component';
+import { VacanciesDetailComponent } from './components/vacancies-detail/vacancies-detail.component';
 
 
 @NgModule({
@@ -30,6 +34,10 @@ import { ProjectComponent } from './components/project/project.component';
     CreateProjectComponent,
     ProjectsComponent,
     ProjectComponent,
+    TrainingsComponent,
+    VacanciesComponent,
+    CreateVacanciesComponent,
+    VacanciesDetailComponent,
   ],
   imports: [
     BrowserModule,

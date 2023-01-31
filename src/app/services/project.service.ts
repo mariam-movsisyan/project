@@ -24,11 +24,11 @@ export class ProjectService {
             'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         });
     }
-    getProjectById(id: number) {
-        return this.http.get<any>(`https://api.dev.padcllc.com/projects/${id}`, { headers: this.headers });
-    }
     delete(id: number) {
         return this.http.delete<any>(`https://api.dev.padcllc.com/projects/${id}`, { headers: this.headers });
+    }
+    getProjectById(id: number) {
+        return this.http.get<any>(`https://api.dev.padcllc.com/projects/${id}`, { headers: this.headers });
     }
     updateProject(id: number, project: any) {
         return this.http.put<any>(`https://api.dev.padcllc.com/projects/${id}`, project, { headers: this.headers });
