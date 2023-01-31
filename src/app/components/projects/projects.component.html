@@ -1,0 +1,29 @@
+<div class="mb-2">
+    <button routerLink='/main-layout/create-project' type="button" class="btn btn-success">Add</button>
+</div>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col" class="id">Id</th>
+            <th scope="col">Title</th>
+            <th scope="col">Description</th>
+            <th scope="col" class="text-end id"></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let project of projects">
+            <th class="id">{{project.id}}</th>
+            <td>{{project.title}}</td>
+            <td>{{project.description}}</td>
+            <td class="text-end id">
+                <a (click)="edit(project.id)">
+                    <i class="fa-solid fa-pen"></i>
+                </a>
+                <a (click)="delete(project.id)">
+                    <i class="fa-solid fa-trash" style="color: red;"></i>
+                </a>
+            </td>
+        </tr>
+
+    </tbody>
+</table>

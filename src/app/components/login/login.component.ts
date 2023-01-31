@@ -52,10 +52,7 @@ export class LoginComponent {
 
             this.errorMessage = err.error.error
             console.log(this.errorMessage);
-
-
           })
     }
   }
-
 }

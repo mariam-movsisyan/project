@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule, Routes } from '@angular/router';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -13,6 +12,9 @@ import { NewOrdersComponent } from './components/new-orders/new-orders.component
 import { OrdersComponent } from './components/orders/orders.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
+import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { ProjectsComponent } from './components/projects/projects.component';
+import { ProjectComponent } from './components/project/project.component';
 
 
 @NgModule({
@@ -25,6 +27,9 @@ import { RegistrationComponent } from './components/registration/registration.co
     NewOrdersComponent,
     OrdersComponent,
     RegistrationComponent,
+    CreateProjectComponent,
+    ProjectsComponent,
+    ProjectComponent,
   ],
   imports: [
     BrowserModule,

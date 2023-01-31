@@ -8,16 +8,16 @@ import { UserService } from '../../services/user.service';
   styleUrls: ['./main-layout.component.css']
 })
 export class MainLayoutComponent implements OnInit {
-  public name!: any
+  public data: any;
+  public name!: string
   public isTrue: boolean = false
   constructor(private userService: UserService,
     private router: Router) { }
 
   ngOnInit(): void {
-    // let x = localStorage.getItem('user') as string;
-    // let y = JSON.parse(x)
-    // this.name = y[0].firstName + " " + y[0].lastName
-
+    this.data = this.userService.parseToken()
+    // console.log(this.data);
+    this.name = this.data.firstName + " " + this.data.lastName
   }
   openMenu() {
     this.isTrue = !this.isTrue
