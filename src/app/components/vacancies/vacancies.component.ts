@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
-import { ProjectService } from 'src/app/services/project.service';
 import { VacanciesService } from 'src/app/services/vacancies.service';
 
 @Component({
@@ -26,13 +25,13 @@ export class VacanciesComponent {
     this.vacanciesService.delete(id).subscribe((resp) => {
       console.log(resp);
       this.showProjects()
-    },err=>{
+    }, err => {
       console.log(err);
-      
+
     })
   }
   public edit(id: number) {
-    this.router.navigate(['/main-layout/vacancies-detail', id])
-  } 
+    this.router.navigate(['/main-layout/vacancies-detail/', id])
+  }
 
 }

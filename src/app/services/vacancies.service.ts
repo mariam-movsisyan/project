@@ -8,7 +8,7 @@ export class VacanciesService {
     private headers: any
     constructor(private http: HttpClient) { 
         this.headers = this.getHeader()
-        // console.log(this.headers);
+        console.log(this.headers);
     }
 
     public getAllVacancies() {
@@ -16,7 +16,7 @@ export class VacanciesService {
     }
     getHeader() {
         return new HttpHeaders({
-            'Content1': 'application/json',
+            'Content': 'application/json',
             'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
         });
     }

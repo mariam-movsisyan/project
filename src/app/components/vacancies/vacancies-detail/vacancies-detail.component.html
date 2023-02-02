@@ -1,0 +1,23 @@
+<div>
+    <div>
+        <form [formGroup]="form" style="width: 50%;">
+            <div class="form-group">
+                <label for="exampleInputEmail1" class="mb-2">Description</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+                    placeholder="description" formControlName="description">
+            </div>
+            <div class="form-group  mt-4">
+                <label for="exampleInputPassword1" class="mb-2">Short Description</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5"
+                    formControlName="shortDescription"></textarea>
+            </div>
+            <div class="btn-div d-flex">
+                <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
+                <button type="submit" class="btn btn-success" (click)="save()">Save</button>
+            </div>
+        </form>
+        <div [innerHTML]="date">
+        </div>
+    </div>
+    
+</div>

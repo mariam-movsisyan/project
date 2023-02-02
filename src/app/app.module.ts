@@ -12,13 +12,16 @@ import { NewOrdersComponent } from './components/new-orders/new-orders.component
 import { OrdersComponent } from './components/orders/orders.component';
 import {HttpClientModule} from '@angular/common/http';
 import { RegistrationComponent } from './components/registration/registration.component';
-import { CreateProjectComponent } from './components/create-project/create-project.component';
+import { CreateProjectComponent } from './components/projects/create-project/create-project.component';
 import { ProjectsComponent } from './components/projects/projects.component';
-import { ProjectComponent } from './components/project/project.component';
+import { ProjectComponent } from './components/projects/project/project.component';
 import { TrainingsComponent } from './components/trainings/trainings.component';
 import { VacanciesComponent } from './components/vacancies/vacancies.component';
 import { CreateVacanciesComponent } from './components/create-vacancies/create-vacancies.component';
-import { VacanciesDetailComponent } from './components/vacancies-detail/vacancies-detail.component';
+import { VacanciesDetailComponent } from './components/vacancies/vacancies-detail/vacancies-detail.component';
+import { CreateTrainingsComponent } from './components/trainings/create-trainings/create-trainings.component';
+import { TrainingsDetailComponent } from './components/trainings/trainings-detail/trainings-detail.component';
+
 
 
 @NgModule({
@@ -38,6 +41,8 @@ import { VacanciesDetailComponent } from './components/vacancies-detail/vacancie
     VacanciesComponent,
     CreateVacanciesComponent,
     VacanciesDetailComponent,
+    CreateTrainingsComponent,
+    TrainingsDetailComponent,
   ],
   imports: [
     BrowserModule,

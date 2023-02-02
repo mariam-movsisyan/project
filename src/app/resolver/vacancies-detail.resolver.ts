@@ -12,7 +12,7 @@ export class VacanciesDetailResolver implements Resolve<boolean> {
 
   }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
-    return this.vacanciesService.getVacanciesById(route.params['id']).pipe(map(project => project.data,
+    return this.vacanciesService.getVacanciesById(route.params['id']).pipe(map(vacancies => vacancies.data,
       catchError(error => {
         return 'Not found';
       })));

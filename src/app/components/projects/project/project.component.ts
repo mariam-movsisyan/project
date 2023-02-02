@@ -19,9 +19,8 @@ export class ProjectComponent implements OnInit{
     private router: Router,
     private route: ActivatedRoute) {
       this.route.data.subscribe((data)=>{
-        this.values = data['projectDetail'];
-        console.log(this.values.title);
-        
+        this.values = data['detail'];
+        console.log(this.values.title); 
       })
     this.form = _fb.group({
       title: [this.values.title, Validators.required],

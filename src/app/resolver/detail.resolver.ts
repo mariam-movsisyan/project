@@ -7,10 +7,7 @@ import { ProjectService } from "../services/project.service";
   providedIn: 'root'
 })
 export class DetailResolver implements Resolve<boolean> {
-  id: any;
-  constructor(private projectService: ProjectService) {
-
-  }
+  constructor(private projectService: ProjectService) { }
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> {
     return this.projectService.getProjectById(route.params['id']).pipe(map(project => project.data,
       catchError(error => {

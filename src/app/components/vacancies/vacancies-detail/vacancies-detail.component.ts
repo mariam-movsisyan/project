@@ -13,17 +13,20 @@ export class VacanciesDetailComponent implements OnInit {
 
   public id!: number;
   public values: any
-  public form: FormGroup
+  public form: FormGroup;
+  public date: any;
   constructor(private _fb: FormBuilder,
     public vacanciesService: VacanciesService,
     private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute) {
-      this.route.data.subscribe((data)=>{
-        this.values = data['projectDetail'];
-        console.log(this.values.description);
-        
-      })
+    this.route.data.subscribe((data) => {
+      console.log(data);
+
+      this.values = data['vacanciesDetail'];
+      this.date = this.values.shortDescription
+      console.log(typeof this.date);
+    })
     this.form = _fb.group({
       description: [this.values.description, Validators.required],
       shortDescription: [this.values.shortDescription, Validators.required],
@@ -31,12 +34,12 @@ export class VacanciesDetailComponent implements OnInit {
     this.form.disable();
   }
   ngOnInit(): void {
-    this.route.params.subscribe((params: Params)=>{
+    this.route.params.subscribe((params: Params) => {
       console.log((params));
       this.id = params['id']
-      
+
     })
-    
+
   }
   edit() {
     const value = this.authService.isEdit()
@@ -53,15 +56,15 @@ export class VacanciesDetailComponent implements OnInit {
       return this.form.disable()
     }
   }
-  updateProject(){
-    if(this.form.valid) {
-      const project = this.vacanciesService.updateVacancy(this.id,this.form.value);
+  updateProject() {
+    if (this.form.valid) {
+      const project = this.vacanciesService.updateVacancy(this.id, this.form.value);
       project.subscribe(data => {
         console.log(data);
         this.router.navigate(['/main-layout/vacancies']);
-      },(error=>{
+      }, (error => {
         console.log(error);
-        
+
       }))
     }
   }
