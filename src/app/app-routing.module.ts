@@ -25,7 +25,6 @@ import { ProfileResolver } from './resolver/profile.resolver';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent },
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'registration', component: RegistrationComponent },
   {
     path: 'main-layout', component: MainLayoutComponent, resolve: { profile: ProfileResolver }, canActivate: [AuthGuard], children: [
@@ -40,9 +39,10 @@ const routes: Routes = [
       { path: 'vacancies-detail/:id', component: VacanciesDetailComponent, resolve: { vacanciesDetail: VacanciesDetailResolver } },
       { path: 'create-trainings', component: CreateTrainingsComponent },
       { path: 'trainings-detail/:id', component: TrainingsDetailComponent, resolve: { trainingDetail: TrainingDetailsResolver } }
-
+      
     ]
   },
+  { path: '**', redirectTo: 'login', pathMatch: 'full' },
 ]
 
 @NgModule({

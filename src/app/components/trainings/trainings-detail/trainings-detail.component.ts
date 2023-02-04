@@ -4,6 +4,17 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TrainingsService } from 'src/app/services/trainings.service';
 import { Files } from '../../models/model';
 
+enum Type {
+  free,
+  paid
+}
+export type training = {
+  name: string,
+  description: string,
+  mediaFiles: any,
+  date: Date,
+  type: Type
+}
 @Component({
   selector: 'app-trainings-detail',
   templateUrl: './trainings-detail.component.html',
@@ -12,7 +23,7 @@ import { Files } from '../../models/model';
 export class TrainingsDetailComponent {
   public isEdit: boolean = false
   public form: FormGroup
-  public trainings!: any
+  public trainings!: training
   public id!: number;
 
   constructor(private _fb: FormBuilder,
@@ -22,7 +33,6 @@ export class TrainingsDetailComponent {
       route.data.subscribe((data)=>{
         this.trainings = data['trainingDetail']
       }) 
-      console.log(this.trainings.date, );
     this.form = _fb.group({
       name: [this.trainings.name, Validators.required],
       description: [this.trainings.description, Validators.required],

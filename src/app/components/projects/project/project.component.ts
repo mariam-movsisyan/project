@@ -19,7 +19,7 @@ export class ProjectComponent implements OnInit{
     private route: ActivatedRoute) {
       this.route.data.subscribe((data)=>{
         this.values = data['detail'];
-        console.log(this.values.title); 
+        // console.log(this.values.title); 
       })
     this.form = _fb.group({
       title: [this.values.title, Validators.required],
@@ -54,7 +54,7 @@ export class ProjectComponent implements OnInit{
     if(this.form.valid) {
       const project = this.projectService.updateProject(this.id,this.form.value);
       project.subscribe(data => {
-        console.log(data);
+        // console.log(data);
         this.router.navigate(['/main-layout/projects']);
       });
     }

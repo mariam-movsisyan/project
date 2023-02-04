@@ -36,7 +36,7 @@ export class CreateTrainingsComponent {
         this.router.navigate(['main-layout/trainings'])
       }, 
       (error)=>{
-        console.log(error.error.error.message);
+        console.log(error.error.message);
       })
     }
   }

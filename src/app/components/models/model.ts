@@ -15,8 +15,8 @@ export class Files implements mediaFiles{
     constructor(form: mediaFiles){
         this.name = form.name
         this.description = form.description
-        this.date = form.date
         this.file = form.file
+        this.date = form.date
         this.type = form.type
     }
 }

@@ -1,15 +1,21 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, ValidationErrors, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { UserService } from 'src/app/services/user.service';
 
+export type Error = {
+  required?: ValidationErrors | boolean | null,
+  error?: ValidationErrors | null | boolean
+  message?: []
+}
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
+
 export class LoginComponent {
-  public errorMessage: any = {}
+  public errorMessage: Error = {}
   public loginForm: FormGroup
   constructor(private _fb: FormBuilder,
     private router: Router,
@@ -25,22 +31,19 @@ export class LoginComponent {
     const errors1 = this.loginForm.get('password')?.errors
     if (errors?.['required'] || errors1?.['required']) {
       this.errorMessage.required = errors || errors1;
-      console.log(this.errorMessage);
+      // console.log(this.errorMessage, );
     } else {
       this.errorMessage.required = false;
     }
     if (errors?.['email'] || errors1?.['minlength']) {
       this.errorMessage.error = errors || errors1;
-      // console.log(this.errorMessage.error); 
+      // console.log(this.errorMessage);
     } else {
       this.errorMessage.error = false;
     }
   }
   login() {
     this.formIsValid()
-    console.log(this.loginForm.valid);
-
-    if (this.loginForm.valid) {
       const user = this.userService.login(this.loginForm.value)
         .subscribe(response => {
           this.errorMessage = {}
@@ -49,10 +52,13 @@ export class LoginComponent {
           this.router.navigate(['/main-layout/dashboard']);
         },
           (err) => {
-
-            this.errorMessage = err.error.error
-            console.log(this.errorMessage);
-          })
-    }
+            if(this.errorMessage.required == false && this.errorMessage.error == false){
+              this.errorMessage = err.error.error
+              console.log(this.errorMessage, typeof this.errorMessage, 'aaaa');
+            }else{
+              this.errorMessage.message = []
+            }
+          }
+        )
   }
 }

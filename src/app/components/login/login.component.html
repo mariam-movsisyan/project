@@ -8,10 +8,10 @@
                 formControlName="email">
             <input type="password" id="inputPassword" class="form-control" placeholder="Password"
                 formControlName="password">
-            <div class="form-text error-message" *ngIf="errorMessage.required?.required">
+            <div class="form-text error-message" *ngIf="errorMessage.required">
                 Email and password are required.
             </div>
-            <div class="form-text error-message" *ngIf="errorMessage.error">
+            <div class="form-text error-message" *ngIf="errorMessage.error && errorMessage.required == false">
                 Email or password is wrong.
             </div>
             <div class="form-text error-message" *ngFor="let error of errorMessage.message">

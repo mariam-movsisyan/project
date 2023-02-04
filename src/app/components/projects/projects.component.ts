@@ -17,7 +17,7 @@ export class ProjectsComponent {
   showProjects() {
     this.projectService.getAllProjects().subscribe(resp => {
       this.projects = resp.data
-      console.log(this.projects);
+      // console.log(this.projects);
     })
   }
 
