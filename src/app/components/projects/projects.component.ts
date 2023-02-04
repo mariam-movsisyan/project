@@ -13,6 +13,7 @@ export class ProjectsComponent {
     public projectService: ProjectService) {
     this.showProjects()
   }
+  
   showProjects() {
     this.projectService.getAllProjects().subscribe(resp => {
       this.projects = resp.data

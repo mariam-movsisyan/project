@@ -17,7 +17,7 @@ export class TrainingsComponent {
   showProjects() {
     this.trainingsService.getAllTraining().subscribe(resp => {
       this.trainings = resp.data
-      console.log(this.trainings);
+      // console.log(this.trainings);
     })
   }
 

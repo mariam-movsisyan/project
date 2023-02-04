@@ -7,30 +7,22 @@ import { Injectable } from '@angular/core';
 export class TrainingsService {
 
     projects: any;
-    headers: any
     constructor(private http: HttpClient) {
-        this.headers = this.getHeader();
     }
     addTraining(project: any) {
-        return this.http.post<any>('https://api.dev.padcllc.com/trainings', project, { headers: this.headers });
+        return this.http.post<any>('/trainings', project);
     }
     getAllTraining() {
-        return this.http.get<any>('https://api.dev.padcllc.com/trainings');
-    }
-    getHeader() {
-        return new HttpHeaders({
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        });
+        return this.http.get<any>('/trainings');
     }
     delete(id: number) {
-        return this.http.delete<any>(`https://api.dev.padcllc.com/trainings/${id}`, { headers: this.headers });
+        return this.http.delete<any>(`/trainings/${id}`);
     }
     getTriningById(id: number) {
-        return this.http.get<any>(`https://api.dev.padcllc.com/trainings/${id}`, { headers: this.headers });
+        return this.http.get<any>(`/trainings/${id}`);
     }
     updateTrinings(id: number, project: any) {
-        return this.http.put<any>(`https://api.dev.padcllc.com/trainings/${id}`, project, { headers: this.headers });
+        return this.http.put<any>(`/trainings/${id}`, project);
     }
 
 }

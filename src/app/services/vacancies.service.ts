@@ -5,32 +5,24 @@ import { Injectable } from '@angular/core';
     providedIn: 'root'
 })
 export class VacanciesService {
-    private headers: any
-    constructor(private http: HttpClient) { 
-        this.headers = this.getHeader()
-        console.log(this.headers);
+    constructor(private http: HttpClient) {
     }
 
     public getAllVacancies() {
-        return this.http.get<any>('https://api.dev.padcllc.com/vacancies');
+        return this.http.get<any>('/vacancies');
     }
-    getHeader() {
-        return new HttpHeaders({
-            'Content': 'application/json',
-            'Authorization': `Bearer ${localStorage.getItem('accessToken')}`
-        });
-    }
+
     public delete(id: number) {
-        return this.http.delete<any>(`https://api.dev.padcllc.com/vacancies/${id}`, { headers: this.headers })
+        return this.http.delete<any>(`/vacancies/${id}`)
     }
-    public addVacancy(vacancy: any){
-        return this.http.post<any>('https://api.dev.padcllc.com/vacancies', vacancy, { headers: this.headers })
+    public addVacancy(vacancy: any) {
+        return this.http.post<any>('/vacancies', vacancy)
     }
     public getVacanciesById(id: number) {
-        return this.http.get<any>(`https://api.dev.padcllc.com/vacancies/${id}`, { headers: this.headers });
+        return this.http.get<any>(`/vacancies/${id}`);
     }
     public updateVacancy(id: number, project: any) {
-        return this.http.put<any>(`https://api.dev.padcllc.com/vacancies/${id}`, project, { headers: this.headers });
+        return this.http.put<any>(`/vacancies/${id}`, project);
     }
 
 

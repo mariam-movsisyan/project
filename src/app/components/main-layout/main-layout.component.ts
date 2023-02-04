@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 
 @Component({
@@ -12,17 +12,21 @@ export class MainLayoutComponent implements OnInit {
   public name!: string
   public isTrue: boolean = false
   constructor(private userService: UserService,
-    private router: Router) { }
-
+    private router: Router,
+    private route: ActivatedRoute) {
+    this.route.data.subscribe((data) => {
+      this.data = data['profile'];
+    })
+    console.log(this.data, 'data');
+    
+  }
   ngOnInit(): void {
-    this.data = this.userService.parseToken()
-    // console.log(this.data);
     this.name = this.data.firstName + " " + this.data.lastName
   }
   openMenu() {
     this.isTrue = !this.isTrue
   }
-  logOut(){
+  logOut() {
     this.userService.logout()
     this.router.navigate(['/login'])
   }

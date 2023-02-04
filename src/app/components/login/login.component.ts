@@ -45,7 +45,7 @@ export class LoginComponent {
         .subscribe(response => {
           this.errorMessage = {}
           localStorage.setItem('accessToken', response.data.accessToken)
-          console.log(response);
+          // console.log(response);
           this.router.navigate(['/main-layout/dashboard']);
         },
           (err) => {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 import { ProjectService } from 'src/app/services/project.service';
 
 @Component({
@@ -11,11 +10,11 @@ import { ProjectService } from 'src/app/services/project.service';
 })
 export class ProjectComponent implements OnInit{
   public id!: number;
+  public isEdit: boolean = false
   public values: any
   public form: FormGroup
   constructor(private _fb: FormBuilder,
     public projectService: ProjectService,
-    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute) {
       this.route.data.subscribe((data)=>{
@@ -37,17 +36,17 @@ export class ProjectComponent implements OnInit{
     
   }
   edit() {
-    const value = this.authService.isEdit()
-    if (value == false) {
-      this.authService.edit()
-      return this.form.enable()
-    }
+      this.isEdit = !this.isEdit
+      if (this.isEdit === true) {
+        return this.form.enable()
+      } else {
+        return this.form.disable()
+      }
   }
   save() {
-    const value = this.authService.isEdit()
-    if (value == true) {
-      this.authService.save()
+    if (this.isEdit == true) {
       this.updateProject()
+      this.isEdit = !this.isEdit
       return this.form.disable()
     }
   }

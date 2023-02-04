@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 import { VacanciesService } from 'src/app/services/vacancies.service';
 
 @Component({
@@ -11,13 +10,13 @@ import { VacanciesService } from 'src/app/services/vacancies.service';
 })
 export class VacanciesDetailComponent implements OnInit {
 
+  public isEdit: boolean = false
   public id!: number;
   public values: any
   public form: FormGroup;
   public date: any;
   constructor(private _fb: FormBuilder,
     public vacanciesService: VacanciesService,
-    private authService: AuthService,
     private router: Router,
     private route: ActivatedRoute) {
     this.route.data.subscribe((data) => {
@@ -42,20 +41,20 @@ export class VacanciesDetailComponent implements OnInit {
 
   }
   edit() {
-    const value = this.authService.isEdit()
-    if (value == false) {
-      this.authService.edit()
+    this.isEdit = !this.isEdit
+    if (this.isEdit === true) {
       return this.form.enable()
-    }
-  }
-  save() {
-    const value = this.authService.isEdit()
-    if (value == true) {
-      this.authService.save()
-      this.updateProject()
+    } else {
       return this.form.disable()
     }
+}
+save() {
+  if (this.isEdit == true) {
+    this.updateProject()
+    this.isEdit = !this.isEdit
+    return this.form.disable()
   }
+}
   updateProject() {
     if (this.form.valid) {
       const project = this.vacanciesService.updateVacancy(this.id, this.form.value);

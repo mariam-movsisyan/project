@@ -17,7 +17,7 @@ export class VacanciesComponent {
   showProjects() {
     this.vacanciesService.getAllVacancies().subscribe(resp => {
       this.vacancies = resp.data
-      console.log(this.vacancies);
+      // console.log(this.vacancies);
     })
   }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CardService } from '../../services/card.service';
 
 @Component({
@@ -6,18 +6,13 @@ import { CardService } from '../../services/card.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent {
   public cards!: any
   public colors: string[] = ['cadetblue', 'green', 'red', 'cornflowerblue']
-  constructor(private cardService: CardService) { 
+  constructor(private cardService: CardService) {
     this.cards = cardService.data
-    console.log(this.cards);
-    
-  }
-
-  ngOnInit(): void {
+    // console.log(this.cards);
 
   }
-
 
 }

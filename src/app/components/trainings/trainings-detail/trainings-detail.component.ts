@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
-import { AuthService } from 'src/app/services/auth.service';
 import { TrainingsService } from 'src/app/services/trainings.service';
 import { Files } from '../../models/model';
 
@@ -11,7 +10,7 @@ import { Files } from '../../models/model';
   styleUrls: ['./trainings-detail.component.css']
 })
 export class TrainingsDetailComponent {
-
+  public isEdit: boolean = false
   public form: FormGroup
   public trainings!: any
   public id!: number;
@@ -19,8 +18,7 @@ export class TrainingsDetailComponent {
   constructor(private _fb: FormBuilder,
     public trainingsService: TrainingsService,
     private router: Router,
-    private route: ActivatedRoute,
-    private authService: AuthService) { 
+    private route: ActivatedRoute) { 
       route.data.subscribe((data)=>{
         this.trainings = data['trainingDetail']
       }) 
@@ -36,21 +34,20 @@ export class TrainingsDetailComponent {
     console.log(this.form.value.date)
   }
   edit() {
-    const value = this.authService.isEdit()
-    if (value == false) {
-      this.authService.edit()
+    this.isEdit = !this.isEdit
+    if (this.isEdit === true) {
       return this.form.enable()
-    }
-  }
-  save() {
-    const value = this.authService.isEdit()
-    
-    if (value == true) {
-      this.authService.save()
-      this.updateProject()
+    } else {
       return this.form.disable()
     }
+}
+save() {
+  if (this.isEdit == true) {
+    this.updateProject()
+    this.isEdit = !this.isEdit
+    return this.form.disable()
   }
+}
   updateProject(){
     console.log(this.form.value);
     console.log(this.form.valid);
