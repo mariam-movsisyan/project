@@ -8,6 +8,7 @@ import { VacanciesService } from 'src/app/services/vacancies.service';
   templateUrl: './vacancies-detail.component.html',
   styleUrls: ['./vacancies-detail.component.css']
 })
+
 export class VacanciesDetailComponent implements OnInit {
 
   public isEdit: boolean = false
@@ -24,17 +25,18 @@ export class VacanciesDetailComponent implements OnInit {
 
       this.values = data['vacanciesDetail'];
       this.date = this.values.shortDescription
-      console.log(typeof this.date);
+      // console.log(this.date,);
     })
     this.form = _fb.group({
       description: [this.values.description, Validators.required],
       shortDescription: [this.values.shortDescription, Validators.required],
     })
+    
     this.form.disable();
   }
   ngOnInit(): void {
     this.route.params.subscribe((params: Params) => {
-      console.log((params));
+      // console.log((params));
       this.id = params['id']
 
     })

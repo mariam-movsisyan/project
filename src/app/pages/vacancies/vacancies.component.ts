@@ -12,12 +12,14 @@ export class VacanciesComponent {
   public vacancies: any;
   constructor(private router: Router,
     private vacanciesService: VacanciesService) {
+     
+      
     this.showProjects()
+    
   }
   showProjects() {
     this.vacanciesService.getAllVacancies().subscribe(resp => {
       this.vacancies = resp.data
-      // console.log(this.vacancies);
     })
   }
 
@@ -31,7 +33,7 @@ export class VacanciesComponent {
     })
   }
   public edit(id: number) {
-    this.router.navigate(['/main-layout/vacancies-detail/', id])
+    this.router.navigate(['main-layout','vacancies','vacancies-detail', id])
   }
 
 }

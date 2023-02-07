@@ -22,7 +22,7 @@ export class TrainingsComponent {
   }
 
   public edit(id: number) {
-    this.router.navigate(['/main-layout/trainings-detail/', id])
+    this.router.navigate(['main-layout','trainings', 'trainings-detail', id])
   }
 }
 

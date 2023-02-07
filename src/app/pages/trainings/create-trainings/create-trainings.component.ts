@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TrainingsService } from 'src/app/services/trainings.service';
-import { Files } from '../../models/model';
+import { Files } from '../../../components/models/model';
 
 @Component({
   selector: 'app-create-trainings',

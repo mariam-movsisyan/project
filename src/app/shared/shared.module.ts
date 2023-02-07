@@ -18,6 +18,4 @@ import { CommonModule } from "@angular/common";
         FormsModule
     ]
 })
-export class SharedModule {
-
-}
+export class SharedModule { }
