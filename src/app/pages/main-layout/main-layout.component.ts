@@ -17,7 +17,7 @@ export class MainLayoutComponent implements OnInit {
     this.route.data.subscribe((data) => {
       this.data = data['profile'];
     })
-    console.log(this.data, 'data') ;
+    // console.log(this.data, 'data') ;
     
   }
   ngOnInit(): void {

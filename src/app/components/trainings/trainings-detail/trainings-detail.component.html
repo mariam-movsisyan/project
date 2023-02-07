@@ -12,7 +12,7 @@
         </div>
         <div class="input-group mt-4 mb-4">
             <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04"
-                aria-label="Upload" formControlName="mediaFiles">
+                aria-label="Upload" formControlName="image" (change)="getFile($event)">
         </div>
         <div class="form-group">
             <label for="date" class="mb-2">Date</label>

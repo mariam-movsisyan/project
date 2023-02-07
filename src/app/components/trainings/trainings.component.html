@@ -7,6 +7,7 @@
             <th scope="col" class="id">Id</th>
             <th scope="col">Name</th>
             <th scope="col">Description</th>
+            <th scope="col">Image</th>
             <th scope="col" class="text-end id"></th>
         </tr>
     </thead>
@@ -15,12 +16,13 @@
             <th class="id">{{training.id}}</th>
             <td>{{training.name}}</td>
             <td>{{training.description}}</td>
+            <td>
+                <!-- <img src= {{url}} {{training.mediaFiles?.path}} alt=""> -->
+                <img src="{{url}}{{training.mediaFiles?.path}}" alt="">
+            </td>
             <td class="text-end id">
                 <a (click)="edit(training.id)">
                     <i class="fa-solid fa-pen"></i>
-                </a>
-                <a (click)="deleteVacancy(training.id)">
-                    <i class="fa-solid fa-trash" style="color: red;"></i>
                 </a>
             </td>
         </tr>

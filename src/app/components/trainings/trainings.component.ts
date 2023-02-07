@@ -8,32 +8,22 @@ import { TrainingsService } from 'src/app/services/trainings.service';
 })
 export class TrainingsComponent {
 
-
+  url = 'https://api.dev.padcllc.com/'
   public trainings: any;
   constructor(private router: Router,
     private trainingsService: TrainingsService) {
     this.showProjects()
   }
+
   showProjects() {
     this.trainingsService.getAllTraining().subscribe(resp => {
       this.trainings = resp.data
-      // console.log(this.trainings);
     })
   }
 
-  public deleteVacancy(id: number) {
-    this.trainingsService.delete(id).subscribe((resp) => {
-      console.log(resp);
-      this.showProjects()
-    }, err => {
-      console.log(err);
-
-    })
-  }
   public edit(id: number) {
     this.router.navigate(['/main-layout/trainings-detail/', id])
   }
-
 }
 
 

@@ -15,30 +15,33 @@ export class CreateTrainingsComponent {
   public errorMessage: [] = []
   constructor(private _fb: FormBuilder,
     public trainingsService: TrainingsService,
-    private router: Router) { 
+    private router: Router) {
     this.form = _fb.group({
       name: [null, Validators.required],
       description: [null, Validators.required],
-      mediaFiles: [null, Validators.required],
+      image: [null, Validators.required],
       date: [null, Validators.required],
       type: [null, Validators.required]
     })
   }
-  save(){
-    console.log('aaa');
+  getFile(event: Event) {
+    const file = (event.target as HTMLInputElement).files![0]
+    this.form.get('image')?.setValue(file)
+  }
+  save() {
+    if (this.form.valid) {
     console.log(this.form.value);
-    if(this.form.valid){
-      const model = new Files(this.form.value)
-      console.log(model);
-      const user = this.trainingsService.addTraining(model);
-      user.subscribe((data)=>{
-        // console.log(data);
-        this.router.navigate(['main-layout/trainings'])
-      }, 
-      (error)=>{
-        console.log(error.error.message);
-      })
+
+     const model = this.trainingsService.createData(this.form)
+      this.trainingsService.addTraining(model).subscribe(
+        (response) => {
+          console.log(response, 'resp');
+          this.router.navigate(['main-layout/trainings'])
+        },
+        (err) => {
+          console.log(err, 'err');
+        }
+      )
     }
   }
-
 }

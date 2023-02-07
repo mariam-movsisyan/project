@@ -49,7 +49,7 @@ export class LoginComponent {
           this.errorMessage = {}
           localStorage.setItem('accessToken', response.data.accessToken)
           // console.log(response);
-          this.router.navigate(['/main-layout/dashboard']);
+          this.router.navigate(['/main-layout']);
         },
           (err) => {
             if(this.errorMessage.required == false && this.errorMessage.error == false){

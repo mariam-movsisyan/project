@@ -1,6 +1,6 @@
 table{
     border-collapse: collapse;
-    border-spacing: 30px 0px;
+    vertical-align: middle; 
 }
 td, th{
     width: 2%;
@@ -9,9 +9,13 @@ td, th{
     width: .5%;
 }
 i{
-    margin-right: 25px;
+    margin-right: 10px;
 }
 
 a{
     cursor: pointer;
+}
+img{
+    width: 80px;
+    height: 80px;
 }

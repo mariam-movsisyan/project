@@ -30,6 +30,6 @@ export class ProjectsComponent {
     })
   }
   public edit(id: number) {
-    this.router.navigate(['/main-layout/project', id])
+    this.router.navigate(['main-layout','projects','project',id])
   } 
 }

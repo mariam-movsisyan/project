@@ -2,14 +2,14 @@ export interface mediaFiles {
     name: string
     description: string;
     date: Date
-    file: string
+    file: any
     type: string
 }
 export class Files implements mediaFiles{
     name: string;
     description: string;
     date: Date;
-    file: string;
+    file: any;
     type: string;
   
     constructor(form: mediaFiles){
