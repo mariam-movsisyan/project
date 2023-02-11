@@ -11,7 +11,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let project of projects">
+        <tr *ngFor="let project of projects$ | async">
             <th class="id">{{project.id}}</th>
             <td>{{project.title}}</td>
             <td>{{project.description}}</td>

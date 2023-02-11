@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
@@ -6,7 +6,8 @@ import { ProjectService } from 'src/app/services/project.service';
 @Component({
   selector: 'app-create-project',
   templateUrl: './create-project.component.html',
-  styleUrls: ['./create-project.component.css']
+  styleUrls: ['./create-project.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CreateProjectComponent implements OnInit {
   public form: FormGroup
@@ -27,7 +28,6 @@ export class CreateProjectComponent implements OnInit {
       const user = this.projectService.addProject(this.form.value);
       user.subscribe((data)=>{
         // console.log(data);
-        
         this.router.navigate(['main-layout/projects'])
       })
     }

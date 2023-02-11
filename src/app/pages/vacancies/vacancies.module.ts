@@ -16,7 +16,7 @@ const routes: Routes = [
     declarations: [
         VacanciesComponent,
         CreateVacanciesComponent,
-        VacanciesComponent
+        VacanciesDetailComponent
     ],
     imports: [
         SharedModule,

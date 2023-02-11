@@ -1,6 +1,6 @@
 <div>
     <div>
-        <!-- <form [formGroup]="form"> -->
+        <form [formGroup]="form">
             <div class="form-group">
                 <label for="exampleInputEmail1" class="mb-2">Description</label>
                 <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
@@ -15,7 +15,7 @@
                 <button type="button" class="btn btn-success" (click)="edit()">Edit</button>
                 <button type="submit" class="btn btn-success" (click)="save()">Save</button>
             </div>
-        <!-- </form> -->
+        </form>
         <div [innerHTML]="date">
         </div>
     </div>

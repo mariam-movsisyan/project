@@ -1,20 +1,25 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { FormGroup } from '@angular/forms';
+import { map, pipe, Subject } from 'rxjs';
 
 @Injectable({
     providedIn: 'root'
 })
 export class TrainingsService {
 
-    projects: any;
+    trainings: Subject<any> = new Subject;
     constructor(private http: HttpClient) {
     }
     addTraining(project: any) {
         return this.http.post<any>('/trainings', project);
     }
     getAllTraining() {
-        return this.http.get<any>('/trainings');
+        return this.http.get<any>('/trainings')
+        .pipe(map(({ data }) => {
+            console.log(data, 'data');
+           return this.trainings.next(data)
+        }));
     }
 
     getTriningById(id: number) {

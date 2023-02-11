@@ -5,16 +5,18 @@ import { CreateTrainingsComponent } from "./create-trainings/create-trainings.co
 import { TrainingsDetailComponent } from "./trainings-detail/trainings-detail.component";
 import { TrainingsComponent } from "./trainings.component";
 import { TrainingDetailsResolver } from "src/app/resolver/training-details.resolver";
-import { TrainingsResolver } from "src/app/resolver/trainings.resolver";
+// import { TrainingsResolver } from "src/app/resolver/trainings.resolver";
 
 const routes: Routes = [
-    { path: '', component: TrainingsComponent, resolve: { training: TrainingsResolver } },
+    { path: '', component: TrainingsComponent},
     { path: 'create-trainings', component: CreateTrainingsComponent },
     { path: 'trainings-detail/:id', component: TrainingsDetailComponent,  resolve: { trainingDetail: TrainingDetailsResolver } },
 ];
 @NgModule({
     declarations: [
-       TrainingsComponent
+       TrainingsComponent,
+       CreateTrainingsComponent,
+       TrainingsDetailComponent
     ],
     imports: [
         SharedModule,

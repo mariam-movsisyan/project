@@ -12,12 +12,11 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let training of trainings">
+        <tr *ngFor="let training of trainings$ | async">
             <th class="id">{{training.id}}</th>
             <td>{{training.name}}</td>
             <td>{{training.description}}</td>
             <td>
-                <!-- <img src= {{url}} {{training.mediaFiles?.path}} alt=""> -->
                 <img src="{{url}}{{training.mediaFiles?.path}}" alt="">
             </td>
             <td class="text-end id">

@@ -1,24 +1,25 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { map, Observable } from 'rxjs';
 import { TrainingsService } from 'src/app/services/trainings.service';
 @Component({
   selector: 'app-trainings',
   templateUrl: './trainings.component.html',
-  styleUrls: ['./trainings.component.css']
+  styleUrls: ['./trainings.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TrainingsComponent {
 
   url = 'https://api.dev.padcllc.com/'
-  public trainings: any;
+  public trainings$!: Observable<any>;
   constructor(private router: Router,
     private trainingsService: TrainingsService) {
     this.showProjects()
   }
 
   showProjects() {
-    this.trainingsService.getAllTraining().subscribe(resp => {
-      this.trainings = resp.data
-    })
+    this.trainings$ = this.trainingsService.trainings
+    this.trainingsService.getAllTraining().subscribe()
   }
 
   public edit(id: number) {

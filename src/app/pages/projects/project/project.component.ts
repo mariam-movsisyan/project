@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ProjectService } from 'src/app/services/project.service';
@@ -6,7 +6,8 @@ import { ProjectService } from 'src/app/services/project.service';
 @Component({
   selector: 'app-project',
   templateUrl: './project.component.html',
-  styleUrls: ['./project.component.css']
+  styleUrls: ['./project.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ProjectComponent implements OnInit{
   public id!: number;
@@ -33,7 +34,6 @@ export class ProjectComponent implements OnInit{
       this.id = params['id']
       
     })
-    
   }
   edit() {
       this.isEdit = !this.isEdit

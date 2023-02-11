@@ -1,13 +1,13 @@
-import { Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { TrainingsService } from 'src/app/services/trainings.service';
-import { Files } from '../../../components/models/model';
 
 @Component({
   selector: 'app-create-trainings',
   templateUrl: './create-trainings.component.html',
-  styleUrls: ['./create-trainings.component.css']
+  styleUrls: ['./create-trainings.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 
 export class CreateTrainingsComponent {
